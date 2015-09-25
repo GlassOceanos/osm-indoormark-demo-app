@@ -1,20 +1,24 @@
  
 # osm-indoormark-demo-app
 
-This a demo app showing how to use the indoormark tag specification at Open Street Map
+This a demo app showing how to use the [indoormark tag](http://wiki.openstreetmap.org/wiki/Tag:indoormark%3Dbeacon) specification at Open Street Map.
+
+The application has been developed under the scope of the [Ubica2](http://smartprojects.zed.com/?project=p1) project by the [Smart Projects Group](http://smartprojects.zed.com) at Zed.
 
 ## Usage
 
-Indoor location and navigation are fields of investigation that require a geographical information system to store information. Not only the layout of a building and navigation graphs, also the location of indoor beacons are important for such solutions. Inside a building, the problem to solve is very similar to air and sea transport, having the same objective: to position and guide a user through the venue.
+The application uses the camera to scan QR codes. Neither iBeacons nor NFC are detected. You need to print at least one QR already tagged in OSM as explained later.
+To use the app, press the camera button and point to a QR code tagged in OSM as explained in the mentioned page. If QR is found, the map will show you the position where the QR beacon is located.
 
-Using indoormark tag it is possible to label several types of indoor beacons. The Ubica2 project developed by Zed with the collaboration of URJC is creating an indoor navigation system based on several indoor positioning technologies. Some of these technologies require the use of beacons such us:
+
+## Tagging
+Please refer to the [indoormark tag](http://wiki.openstreetmap.org/wiki/Tag:indoormark%3Dbeacon) definition at Open Street Map to have a complete idea
+
+Using indoormark tag it is possible to label several types of indoor beacons such us:
 
     ibeacons: they provide proximity location enabling triangulation positioning
     NFC tags: they can provide the coordinate of the current position
     QR codes: as the NFC tags, they can provide a known coordinate.
-
-But all these items have to be deployed in a building and therefore, their information has to be stored in a geographical data base. Having this, navigation applications could query the information required to locate and guide the user.
-Tagging
 
 The tag is defined in a similar way as is established for seamark and airmark tags. To this end, the key/value indoormark=beacon is used. Furthermore, we can extend a beacon with a number of attributes that allow accommodate all the information necessary.
 
@@ -35,7 +39,7 @@ required |	level 		|* 		|Level where the beacon is deployed. This is specified b
 
 The only mandatory tag is the indoormark key but it is suggested to add some more information using the other tags shown in the previous table. In addition, the use of the level tag provides compatibility with the specifications written in the Simple Indoor Tagging wiki page. Doing all that, navigation systems could retrieve all the data they need to position the user. For instance, an ibeacon based application should know the major and minor numbers to distinguish any ibeacon. A NFC tag would give its unique address when detected and this value could be use to match an indoormark in Open Street Maps and obtain its coordinates. See the examples below to know how this can be achieved.
 
-## Examples
+### Examples
 
 QR beacon
 
