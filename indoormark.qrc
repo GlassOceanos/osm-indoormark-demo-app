@@ -1,0 +1,39 @@
+<RCC>
+    <qresource prefix="/">
+        <file>src/qml/main.qml</file>
+        <file>src/qml/components/FlatButton.qml</file>
+        <file>src/qml/components/Icon.qml</file>
+        <file>src/qml/components/Label.qml</file>
+        <file>src/qml/components/MapBottomBar.qml</file>
+        <file>src/qml/components/MapTopBar.qml</file>
+        <file>src/qml/components/PopUp.qml</file>
+        <file>src/qml/components/QRBottomBar.qml</file>
+        <file>src/qml/components/Slider.qml</file>
+        <file>src/qml/pages/MapPanel.qml</file>
+        <file>src/qml/pages/QrReader.qml</file>
+        <file alias="test.png">img/qr_test.png</file>
+        <file>src/qml/components/MainMenuItem.qml</file>
+        <file>src/qml/pages/MainMenu.qml</file>
+        <file>src/qml/components/MainMenuInfoArea.qml</file>
+        <file>src/qml/components/OptionsItem.qml</file>
+        <file alias="logo2">img/Ubica2.png</file>
+        <file alias="app-logo">img/Ubica2_legend.png</file>
+        <file alias="logo">img/Smartservices_symbol_black.png</file>
+        <file>src/qml/pages/About.qml</file>
+        <file alias="ubica2-white">img/Ubica2_white.png</file>
+    </qresource>
+    <qresource prefix="/icons24">
+        <file alias="grey-cross">img/icons24/grey-cross.png</file>
+        <file alias="red-dot">img/icons24/red-dot.png</file>
+        <file alias="way">img/icons24/way.png</file>
+    </qresource>
+    <qresource prefix="/icons32">
+        <file alias="camera">img/icons32/camera.png</file>
+        <file alias="green-camera">img/icons32/green-camera.png</file>
+        <file alias="map">img/icons32/map.png</file>
+        <file alias="app-menu-button">img/icons32/list.png</file>
+    </qresource>
+    <qresource prefix="/icons64">
+        <file alias="pin">img/icons64/pin.png</file>
+    </qresource>
+</RCC>
