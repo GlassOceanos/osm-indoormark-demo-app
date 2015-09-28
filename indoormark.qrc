@@ -11,7 +11,6 @@
         <file>src/qml/components/Slider.qml</file>
         <file>src/qml/pages/MapPanel.qml</file>
         <file>src/qml/pages/QrReader.qml</file>
-        <file alias="test.png">img/qr_test.png</file>
         <file>src/qml/components/MainMenuItem.qml</file>
         <file>src/qml/pages/MainMenu.qml</file>
         <file>src/qml/components/MainMenuInfoArea.qml</file>
