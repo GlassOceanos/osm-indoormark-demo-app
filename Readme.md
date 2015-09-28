@@ -1,14 +1,30 @@
  
 # osm-indoormark-demo-app
 
-This a demo app showing how to use the [indoormark tag](http://wiki.openstreetmap.org/wiki/Tag:indoormark%3Dbeacon) specification at Open Street Map.
+This is a demo app showing how to use the [indoormark tag](http://wiki.openstreetmap.org/wiki/Tag:indoormark%3Dbeacon) specification at Open Street Map.
 
 The application has been developed under the scope of the [Ubica2](http://smartprojects.zed.com/?project=p1) project by the [Smart Projects Group](http://smartprojects.zed.com) at Zed.
 
+## Build
+
+The source code is written in QT 5.5 and runs on Android devices. To build the application, use QT Creator and configure the project for the Android platform.
+
+Requires:
+
+- QT 5.5
+- [QZxing library](http://sourceforge.net/projects/qzxing/)
+
+
+It has been tested on the following devices
+
+- Sony Xperia Z1 Compact
+- Asus Memo Pad 7 (k013)
+
 ## Usage
 
-The application uses the camera to scan QR codes. Neither iBeacons nor NFC are detected. You need to print at least one QR already tagged in OSM as explained later.
-To use the app, press the camera button and point to a QR code tagged in OSM as explained in the mentioned page. If QR is found, the map will show you the position where the QR beacon is located.
+The application uses the camera to scan QR codes. Neither iBeacons nor NFC are detected. You need to print at least one QR already tagged in OSM as explained later. 
+To use the app, press the camera button and point to a QR code tagged in OSM as explained in the mentioned page. The QR should have been generated using an unique identificator to pruduce only one result in the query. If the QR is found, the map will show you the position where the QR beacon is located.
+For testing purposes you can print and use this one:
 
 
 ## Tagging
