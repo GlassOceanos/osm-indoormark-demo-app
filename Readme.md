@@ -26,6 +26,7 @@ The application uses the camera to scan QR codes. Neither iBeacons nor NFC are d
 To use the app, press the camera button and point to a QR code tagged in OSM as explained in the mentioned page. The QR should have been generated using an unique identificator to pruduce only one result in the query. If the QR is found, the map will show you the position where the QR beacon is located.
 For testing purposes you can print and use this one:
 
+![QR code image](https://github.com/GlassOceanos/osm-indoormark-demo-app/blob/master/img/123456.png "Sample QR")
 
 ## Tagging
 Please refer to the [indoormark tag](http://wiki.openstreetmap.org/wiki/Tag:indoormark%3Dbeacon) definition at Open Street Map to have a complete idea
