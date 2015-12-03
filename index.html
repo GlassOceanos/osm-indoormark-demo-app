@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Osm-indoormark-demo-app by GlassOceanos</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Osm-indoormark-demo-app</h1>
+        <h2>Sample application using the indoormark=beacon tag </h2>
+        <a href="https://github.com/GlassOceanos/osm-indoormark-demo-app" class="button"><small>View project on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <h1>
+<a id="osm-indoormark-demo-app" class="anchor" href="#osm-indoormark-demo-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>osm-indoormark-demo-app</h1>
+
+<p>This is a demo app showing how to use the <a href="http://wiki.openstreetmap.org/wiki/Tag:indoormark%3Dbeacon">indoormark tag</a> specification at Open Street Map.</p>
+
+<p>The application has been developed under the scope of the <a href="http://smartprojects.zed.com/?project=p1">Ubica2</a> project by the <a href="http://smartprojects.zed.com">Smart Projects Group</a> at Zed.</p>
+
+<h2>
+<a id="build" class="anchor" href="#build" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build</h2>
+
+<p>The source code is written in QT 5.5 and runs on Android devices. To build the application, use QT Creator and configure the project for the Android platform.</p>
+
+<p>Requires:</p>
+
+<ul>
+<li>QT 5.5</li>
+<li><a href="http://sourceforge.net/projects/qzxing/">QZxing library</a></li>
+</ul>
+
+<p>It has been tested on the following devices</p>
+
+<ul>
+<li>Sony Xperia Z1 Compact</li>
+<li>Asus Memo Pad 7 (k013)</li>
+</ul>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>The application uses the camera to scan QR codes. Neither iBeacons nor NFC are detected. You need to print at least one QR already tagged in OSM as explained later. 
+To use the app, press the camera button and point to a QR code tagged in OSM as explained in the mentioned page. The QR should have been generated using an unique identificator to pruduce only one result in the query. If the QR is found, the map will show you the position where the QR beacon is located.
+For testing purposes you can print and use this one:</p>
+
+<p><img src="https://github.com/GlassOceanos/osm-indoormark-demo-app/blob/master/img/123456.png" alt="QR code image" title="Sample QR"></p>
+
+<h2>
+<a id="tagging" class="anchor" href="#tagging" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tagging</h2>
+
+<p>Please refer to the <a href="http://wiki.openstreetmap.org/wiki/Tag:indoormark%3Dbeacon">indoormark tag</a> definition at Open Street Map to have a complete idea</p>
+
+<p>Using indoormark tag it is possible to label several types of indoor beacons such us:</p>
+
+<pre><code>ibeacons: they provide proximity location enabling triangulation positioning
+NFC tags: they can provide the coordinate of the current position
+QR codes: as the NFC tags, they can provide a known coordinate.
+</code></pre>
+
+<p>The tag is defined in a similar way as is established for seamark and airmark tags. To this end, the key/value indoormark=beacon is used. Furthermore, we can extend a beacon with a number of attributes that allow accommodate all the information necessary.</p>
+
+<p>The scheme devised as follows:</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Key</th>
+<th>Value</th>
+<th>Comment</th>
+<th>Suitable for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>required</td>
+<td>indoormark</td>
+<td>beacon</td>
+<td>Mandatory tag for defining a point which is a beacon</td>
+<td>All</td>
+</tr>
+<tr>
+<td>required</td>
+<td>beacon:type</td>
+<td>String</td>
+<td>Distinguisses the type of the beacon: bluetooth, nfc, qr...</td>
+<td>All</td>
+</tr>
+<tr>
+<td>optional</td>
+<td>beacon:address</td>
+<td>String</td>
+<td>Network address identifier</td>
+<td>ibeacons, NFC</td>
+</tr>
+<tr>
+<td>optional</td>
+<td>beacon:uuid</td>
+<td>String</td>
+<td>Unique identifier given normally for ibeacons</td>
+<td>ibeacons, QRs</td>
+</tr>
+<tr>
+<td>optional</td>
+<td>beacon:major</td>
+<td>Integer</td>
+<td>ibeacon major number</td>
+<td>ibeacons</td>
+</tr>
+<tr>
+<td>optional</td>
+<td>beacon:minor</td>
+<td>Integer</td>
+<td>ibeacon minor number</td>
+<td>ibeacons</td>
+</tr>
+<tr>
+<td>optional</td>
+<td>beacon:measured</td>
+<td>Integer</td>
+<td>signal strength calibration value of an ibeacon</td>
+<td>ibeacons</td>
+</tr>
+<tr>
+<td>required</td>
+<td>level</td>
+<td>*</td>
+<td>Level where the beacon is deployed. This is specified by Simple Indoor Tagging</td>
+<td>all</td>
+</tr>
+</tbody>
+</table>
+
+<p>The only mandatory tag is the indoormark key but it is suggested to add some more information using the other tags shown in the previous table. In addition, the use of the level tag provides compatibility with the specifications written in the Simple Indoor Tagging wiki page. Doing all that, navigation systems could retrieve all the data they need to position the user. For instance, an ibeacon based application should know the major and minor numbers to distinguish any ibeacon. A NFC tag would give its unique address when detected and this value could be use to match an indoormark in Open Street Maps and obtain its coordinates. See the examples below to know how this can be achieved.</p>
+
+<h3>
+<a id="examples" class="anchor" href="#examples" aria-hidden="true"><span class="octicon octicon-link"></span></a>Examples</h3>
+
+<p>QR beacon</p>
+
+<p>QR codes can be used to give a unique identifier when scanned. An approach to transform that to a position within a building is to match the unique identifier given by the QR with the item tagged in our OSM map. Doing this, we can get the coordinates and also the level where the QR is placed.</p>
+
+<pre><code>indoormark=beacon
+level=0
+beacon:type=QR
+beacon:uuid=123456
+</code></pre>
+
+<p>NFC tag</p>
+
+<p>NFC can be used in a similar way to QR codes. In this case, the address of the NFC is unique and the procedure to obtain the location could use its value to get the coordinates and level from the map.</p>
+
+<pre><code>indoormark=beacon
+level=0
+beacon:type=nfc
+beacon:address=11:11:11:11:13
+</code></pre>
+
+<p>bluetooth (ibeacon)</p>
+
+<p>In the case of an ibeacon, we will need more data in order to make work our triangulation algorithm. Useful information to store is the uuid of the beacon, its major and minor numbers and the signal calibration value (measured)</p>
+
+<pre><code>indoormark=beacon
+level=0
+beacon:type=bluetooth
+beacon:uuid=123456789
+beacon:major=1
+beacon:minor=2
+beacon:measured=-56
+</code></pre>
+        </section>
+
+        <aside id="sidebar">
+          <a href="https://github.com/GlassOceanos/osm-indoormark-demo-app/zipball/master" class="button">
+            <small>Download</small>
+            .zip file
+          </a>
+          <a href="https://github.com/GlassOceanos/osm-indoormark-demo-app/tarball/master" class="button">
+            <small>Download</small>
+            .tar.gz file
+          </a>
+
+          <p class="repo-owner"><a href="https://github.com/GlassOceanos/osm-indoormark-demo-app"></a> is maintained by <a href="https://github.com/GlassOceanos">GlassOceanos</a>.</p>
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
